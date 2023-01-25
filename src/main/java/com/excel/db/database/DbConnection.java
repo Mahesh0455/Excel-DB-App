@@ -39,13 +39,17 @@ public class DbConnection {
 
 	public int getRowCount(String tablename) throws IOException, SQLException {
 		Connection con = getDbConnection();
+		String table_name=tablename;
 		int rowCount = 0;
 		if (con == null) {
 			System.out.println("Connection to Database is Failed");
 			return 0;
 		}
-		String query = "select count(1) from " + tablename;
-
+		String query = "select count(1) from "+tablename;
+		
+		
+		
+		
 		Statement st = con.createStatement();
 
 		ResultSet rs = st.executeQuery(query);
